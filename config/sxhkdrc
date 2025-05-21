@@ -1,0 +1,136 @@
+################
+# Applications #
+################
+{Alt_L,Alt_R}
+    xkb-switch -s us
+
+alt + b
+	google-chrome-stable --new-window file:///usr/share/HomePage/index.html
+
+alt + t
+	kitty
+
+alt + a
+	rofi -theme ~/.config/rofi/config.rasi -show drun
+
+alt + c
+    gnome-calculator
+
+alt + o
+	obsidian
+
+alt + F10
+	universal-pause --run
+
+~Print
+	flameshot gui
+
+#########
+# Alarm #
+#########
+
+# Enter the space key (pause the video) and 'alt + tab' (alt + n)
+XF86AudioLowerVolume
+	xdotool key space; bspc desktop -f last.local
+
+# Mute the audio, enter the key space (pause the video) and 'alt + tab' (alt + n)
+XF86AudioRaiseVolume
+	pactl set-sink-mute @DEFAULT_SINK@ false; xdotool key space; bspc desktop -f last.local
+
+# Mute/unmute the audio
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+##################
+# BSPWM settings #
+##################
+
+# Close the application (Blibk with red if can't close)
+alt + {_,shift + }q
+	bspc node -{c,k} || blink RED
+
+# Monocle mode
+alt + m
+	bspc desktop -l next
+
+# Reload configs
+super + shift + r
+	pkill -USR1 -x sxhkd && bspc wm -r
+
+# Turn off monitors
+super + l
+	sleep 1; xset dpms force off
+
+###########
+# Windows #
+###########
+
+# Focus to the window
+alt + {h,l}
+	bspc node --focus {prev,next}.local.window
+
+# Move the tiled window
+alt + shift + {h,l}
+    bspc node -s {prev,next}.local.window --follow
+
+# Move the floated window
+alt + super + {h,j,k,l}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Resize the window
+alt + ctrl + h
+    bspc node -z right -20 0 || bspc node -z left -20 0
+alt + ctrl + j
+    bspc node -z bottom 0 20 || bspc node -z top 0 20
+alt + ctrl + k
+    bspc node -z bottom 0 -20 || bspc node -z top 0 -20
+alt + ctrl + l
+    bspc node -z right 20 0 || bspc node -z left 20 0
+
+#####################
+# Window Management #
+#####################
+
+# Set window status
+super + {t,shift + t,f,shift + f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Set window flag (Blink with green if all is OK)
+super + {u,i,o,p}
+	bspc node -g {marked,sticky,locked,private} && blink GREEN
+
+############
+# Monitors #
+############
+
+# Focus to the other monitor
+alt + i
+	bspc monitor --focus next
+
+############
+# Desktops #
+############
+
+# Focus to the last desktop
+alt + n
+	bspc desktop --focus last.local
+
+# Focus to the prev/next desktop
+alt + {j,k}
+	bspc desktop --focus {prev,next}.local
+
+# Focus to the {0-9} desktop
+alt + {0-9}
+    bspc desktop --focus ^{0-9}
+
+# Move the focused window to the last desktop
+alt + shift + n
+    bspc node --to-desktop last.local --follow
+
+# Move the focused window to the prev/next desktop
+alt + shift + {j,k}
+	bspc node --to-desktop {prev,next}.local --follow
+
+# Move the focused window to the {0-9} desktop
+alt + shift + {0-9}
+    bspc node --to-desktop ^{0-9} --follow
