@@ -1,27 +1,36 @@
 ################
 # Applications #
 ################
+
+# Switch to english layout
 {Alt_L,Alt_R}
     xkb-switch -s us
 
+# Google Chrome with the custom home page
 alt + b
 	google-chrome-stable --new-window file:///usr/share/HomePage/index.html
 
+# Kitty terminal
 alt + t
 	kitty
 
+# Rofi
 alt + a
 	rofi -theme ~/.config/rofi/config.rasi -show drun
 
+# Calculator
 alt + c
     gnome-calculator
 
+# Obsidian
 alt + o
 	obsidian
 
+# UniversalPause (https://github.com/Evilur/Universal-Pause)
 alt + F10
 	universal-pause --run
 
+# Make screenshot
 ~Print
 	flameshot gui
 
@@ -33,7 +42,7 @@ alt + F10
 XF86AudioLowerVolume
 	xdotool key space; bspc desktop -f last.local
 
-# Mute the audio, enter the key space (pause the video) and 'alt + tab' (alt + n)
+# Mute the audio, enter the space (pause the video) and 'alt + tab' (alt + n)
 XF86AudioRaiseVolume
 	pactl set-sink-mute @DEFAULT_SINK@ false; xdotool key space; bspc desktop -f last.local
 
@@ -41,75 +50,73 @@ XF86AudioRaiseVolume
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-##################
-# BSPWM settings #
-##################
-
-# Close the application (Blibk with red if can't close)
-alt + {_,shift + }q
-	bspc node -{c,k} || blink RED
-
-# Monocle mode
-alt + m
-	bspc desktop -l next
+########
+# Misc #
+########
 
 # Reload configs
 super + shift + r
 	pkill -USR1 -x sxhkd && bspc wm -r
 
 # Turn off monitors
-super + l
+super + shift + F10
 	sleep 1; xset dpms force off
 
 ###########
 # Windows #
 ###########
 
-# Focus to the window
+# Close the application (Blibk with red if can't close)
+alt + {_,shift + }q
+	bspc node --{close,kill} || blink RED
+
+# Focus the window
 alt + {h,l}
 	bspc node --focus {prev,next}.local.window
 
-# Move the tiled window
-alt + shift + {h,l}
-    bspc node -s {prev,next}.local.window --follow
+# Focus the window (direction)
+super + {h,j,k,l}
+    bspc node --focus {west,south,north,east}.local.window
 
-# Move the floated window
-alt + super + {h,j,k,l}
-    bspc node -v {-20 0,0 20,0 -20,20 0}
+# Move the window
+alt + shift + {h,l}
+    bspc node --swap {prev,next}.local.window
+
+# Move the window (direction)
+super + shift + h
+    bspc node --move -20 0 || bspc node --swap west.local.window
+super + shift + j
+    bspc node --move 0 20  || bspc node --swap south.local.window
+super + shift + k
+    bspc node --move 0 -20 || bspc node --swap north.local.window
+super + shift + l
+    bspc node --move 20 0  || bspc node --swap east.local.window
 
 # Resize the window
 alt + ctrl + h
-    bspc node -z right -20 0 || bspc node -z left -20 0
+    bspc node --resize right -20 0  || bspc node --resize left -20 0
 alt + ctrl + j
-    bspc node -z bottom 0 20 || bspc node -z top 0 20
+    bspc node --resize bottom 0 20  || bspc node --resize top 0 20
 alt + ctrl + k
-    bspc node -z bottom 0 -20 || bspc node -z top 0 -20
+    bspc node --resize bottom 0 -20 || bspc node --resize top 0 -20
 alt + ctrl + l
-    bspc node -z right 20 0 || bspc node -z left 20 0
-
-#####################
-# Window Management #
-#####################
+    bspc node --resize right 20 0   || bspc node --resize left 20 0
 
 # Set window status
-super + {t,shift + t,f,shift + f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {n,m,comma,period}
+	bspc node --state {floating,tiled,pseudo_tiled,fullscreen}
 
 # Set window flag (Blink with green if all is OK)
 super + {u,i,o,p}
-	bspc node -g {marked,sticky,locked,private} && blink GREEN
-
-############
-# Monitors #
-############
-
-# Focus to the other monitor
-alt + i
-	bspc monitor --focus next
+	bspc node --flag {marked,sticky,locked,private} && blink GREEN
 
 ############
 # Desktops #
 ############
+
+# Monocle mode
+alt + m
+	bspc desktop -l next
 
 # Focus to the last desktop
 alt + n
@@ -134,3 +141,11 @@ alt + shift + {j,k}
 # Move the focused window to the {0-9} desktop
 alt + shift + {0-9}
     bspc node --to-desktop ^{0-9} --follow
+
+############
+# Monitors #
+############
+
+# Focus to the other monitor
+alt + i
+	bspc monitor --focus next
