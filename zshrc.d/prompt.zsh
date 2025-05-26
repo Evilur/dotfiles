@@ -14,7 +14,9 @@ if [[ -z "$WAYLAND_DISPLAY" && -z "$DISPLAY" ]]; then
     PS_BG='%F{green}&'
 fi
 
-spwd-subtract() {
+precmd() {
+    # GET THE SPWD SUBTRACT VALUE:
+
     # Get the last error code
     local last_error_code=$?
 
@@ -38,18 +40,18 @@ spwd-subtract() {
     # Interpretate the prompt
     prompt=$(print -P "$prompt")
 
-    # Print the lenght of the prompt
-    python3 -c "from wcwidth import wcswidth; print(wcswidth('$prompt'))"
-}
+    # Get the lenght of the prompt without the working directory
+    SPWD_SUBTRACT=$(
+        python3 -c "from wcwidth import wcswidth; print(wcswidth('$prompt'))"
+    )
 
-precmd() {
-    # Get the substract for the spwd command
-    local spwd_subtract=$(spwd-subtract)
-    SPWD_SUBTRACT=$spwd_subtract
+# ---------------------------------------------------------------------------- #
 
     # Print a new line before the prompt every time except the first appearance
     if [[ "$NEWLINE_BEFORE_PS1" == true ]]; then echo
     else NEWLINE_BEFORE_PS1=true; fi
+
+# ---------------------------------------------------------------------------- #
 
     # Make the cursor visible
     echo -en '\e[?25h'
