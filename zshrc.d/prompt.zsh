@@ -46,6 +46,10 @@ precmd() {
     # Get the substract for the spwd command
     local spwd_subtract=$(spwd-subtract)
     SPWD_SUBTRACT=$spwd_subtract
+
+    # Print a new line before the prompt every time except the first appearance
+    if [[ "$NEWLINE_BEFORE_PS1" == true ]]; then echo
+    else NEWLINE_BEFORE_PS1=true; fi
 }
 
 # Set the PS1 prompt
