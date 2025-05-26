@@ -50,6 +50,9 @@ precmd() {
     # Print a new line before the prompt every time except the first appearance
     if [[ "$NEWLINE_BEFORE_PS1" == true ]]; then echo
     else NEWLINE_BEFORE_PS1=true; fi
+
+    # Make the cursor visible
+    echo -en '\e[?25h'
 }
 
 # Set the PS1 prompt
