@@ -1,5 +1,6 @@
-# If we not in the tmux session, run a new one
-if [[ -z "$TMUX" ]]; then
+# If we not in the tmux session and don't want to skip this part (tmux.lock),
+# Run a new one
+if [[ -z "$TMUX" && ! -f ~/tmux.lock ]]; then
     {
         # Get the list of sessions
         readonly sessions=$(
