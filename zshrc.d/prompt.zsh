@@ -51,7 +51,7 @@ precmd() {
 # Set the PS1 prompt
 PS1=\
 '%B%F{'$PS_REG'}┌──(%F{%(!.'$PS_ROOT'.'$PS_REG')}%n'$PS_SPLIT'%M%F{'$PS_REG'})\
--[%f$(spwd -w $(tput cols) -s $SPWD_SUBTRACT)%F{'$PS_REG'}]\
+-[%f$(spwd -s $SPWD_SUBTRACT)%F{'$PS_REG'}]\
 %(?..-[%f%?'$PS_ERROR'%F{'$PS_REG'}])\
 %(1j.-[%f%j'$PS_BG'%F{'$PS_REG'}].)
 └─%F{%(!.'$PS_ROOT'.'$PS_REG')}%(!.#.$)%f%b '
