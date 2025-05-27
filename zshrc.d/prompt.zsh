@@ -10,18 +10,22 @@ PS_BG=🌀
 
 # If we have NOT a desktop env
 if [[ -z "$WAYLAND_DISPLAY" && -z "$DISPLAY" ]]; then
-    PS_ERROR='%F{red}X'
-    PS_BG='%F{green}&'
+    readonly PS_ERROR='%F{red}X'
+    readonly PS_BG='%F{green}&'
 fi
 
 precmd() {
-    # GET THE SPWD SUBTRACT VALUE:
+    ###############################
+    # Get the SPWD subtract value #
+    ###############################
 
     # Get the last error code
     local last_error_code=$?
+    readonly last_error_code
 
     # Get the number of jobs in the background
     local jobs_background=$(jobs -p | wc -l)
+    readonly jobs_background
 
     # Get the simplified version of the first line of the PS1
     local prompt='___(%n'$PS_SPLIT'%M)-[]'
@@ -45,20 +49,20 @@ precmd() {
         python3 -c "from wcwidth import wcswidth; print(wcswidth('$prompt'))"
     )
 
-# ---------------------------------------------------------------------------- #
-
-    # Print a new line before the prompt every time except the first appearance
+    ##################################################################
+    # Print a new line before the prompt every time except the first #
+    ##################################################################
     if [[ "$NEWLINE_BEFORE_PS1" == true ]]; then echo
     else NEWLINE_BEFORE_PS1=true; fi
 
-# ---------------------------------------------------------------------------- #
-
-    # Make the cursor visible
+    ###########################
+    # Make the cursor visible #
+    ###########################
     echo -en '\e[?25h'
 }
 
 # Set the PS1 prompt
-PS1=\
+readonly PS1=\
 '%B%F{'$PS_REG'}┌──(%F{%(!.'$PS_ROOT'.'$PS_REG')}%n'$PS_SPLIT'%M%F{'$PS_REG'})\
 -[%f$(spwd -s $SPWD_SUBTRACT)%F{'$PS_REG'}]\
 %(?..-[%f%?'$PS_ERROR'%F{'$PS_REG'}])\
@@ -66,7 +70,7 @@ PS1=\
 └─%F{%(!.'$PS_ROOT'.'$PS_REG')}%(!.#.$)%f%b '
 
 # Set the PS2 prompt
-PS2='%B%F{%(!.'$PS_ROOT'.'$PS_REG'}>>>%f%b '
+readonly PS2='%B%F{%(!.'$PS_ROOT'.'$PS_REG'}>>>%f%b '
 
 # Set the right prompt
-RPROMPT=
+readonly RPROMPT=
