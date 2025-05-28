@@ -2,8 +2,7 @@
 # Applications #
 ################
 
-# Switch to english layout
-{Alt_L,Alt_R}
+Alt_R
     xkb-switch -s us
 
 # Google Chrome with the custom home page
@@ -54,6 +53,10 @@ XF86AudioMute
 # Misc #
 ########
 
+# Quit the BSPWM
+super + shift + q
+    bspc quit
+
 # Reload configs
 super + shift + r
 	pkill -USR1 -x sxhkd && bspc wm -r
@@ -69,6 +72,12 @@ super + shift + F10
 # Close the application (Blibk with red if can't close)
 alt + {_,shift + }q
 	bspc node --{close,kill} || blink RED
+
+# Hide/Show all windows
+alt + d
+    for window in $(bspc query --nodes --node .window.local); do \
+        bspc node $window --flag hidden; \
+    done
 
 # Focus the window
 alt + {h,l}
