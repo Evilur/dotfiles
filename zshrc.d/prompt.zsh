@@ -42,7 +42,7 @@ precmd() {
     fi
 
     # Interpretate the prompt
-    prompt=$(print -P "$prompt")
+    prompt=$(builtin print -P "$prompt")
 
     # Get the lenght of the prompt without the working directory
     SPWD_SUBTRACT=$(
