@@ -1,9 +1,24 @@
+##
+# Configuring zsh prompts
+# @author Evilur <mail@evilur.ru>
+# @since 2025-05-29
+##
+
+##
+# @param PS_REG Color of brackets, dashes and other formatting chars
+# @param PS_ROOT Color of username, hostname and prompt EOL char
+##
 readonly PS_REG=blue
 readonly PS_ROOT=red
 
-# @PS_SPLIT A splitter between a username and a hostname
-# @PS_ERROR A symbol after the error code
-# @PS_BG A symbol after the number of background processes
+##
+# Special symbols for improve the appearance of the shell
+# You can add {@code %F{color}} to change the color of the character
+#
+# @param PS_SPLIT Splitter between a username and a hostname
+# @param PS_ERROR Symbol after the error code
+# @param PS_BG Symbol after the number of background processes
+##
 PS_SPLIT=@
 PS_ERROR=🔥
 PS_BG=🌀
