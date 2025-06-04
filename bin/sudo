@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# IF have NOT root privileges
+if [[ $UID != 0 ]]; then
+    exec doas $@
+# If have root privileges
+else
+    exec $@
+fi
