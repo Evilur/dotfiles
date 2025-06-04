@@ -8,8 +8,8 @@
 # @param PS_REG Color of brackets, dashes and other formatting chars
 # @param PS_ROOT Color of username, hostname and prompt EOL char
 ##
-readonly PS_REG=blue
-readonly PS_ROOT=red
+PS_REG=blue
+PS_ROOT=red
 
 ##
 # Special symbols for improve the appearance of the shell
@@ -25,8 +25,8 @@ PS_BG=🌀
 
 # If we have NOT a desktop env
 if [[ -z "$WAYLAND_DISPLAY" && -z "$DISPLAY" ]]; then
-    readonly PS_ERROR='%F{red}X'
-    readonly PS_BG='%F{green}&'
+    PS_ERROR='%F{red}X'
+    PS_BG='%F{green}&'
 fi
 
 precmd() {
@@ -89,3 +89,9 @@ readonly PS2='%B%F{%(!.'$PS_ROOT'.'$PS_REG'}>>>%f%b '
 
 # Set the right prompt
 readonly RPROMPT=
+
+unset PS_SPLIT
+unset PS_ERROR
+unset PS_BG
+unset PS_REG
+unset PS_ROOT
