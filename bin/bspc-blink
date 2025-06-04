@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# Get the color var
+color=COLOR_$1
+color=${!color}
+
+# Set the border color
+bspc config focused_border_color $color
+
+# Wait
+sleep 0.5
+
+# Restore the color
+bspc config focused_border_color ${COLOR_BLUE}
