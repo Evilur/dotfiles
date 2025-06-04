@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Get directions to resize the window
+directions=($1 $2)
+
+# Get vector to resize the window
+vector=($3 $4)
+
+# Resize the window
+bspc node --resize ${directions[0]} ${vector[@]} ||\
+bspc node --resize ${directions[1]} ${vector[@]}
