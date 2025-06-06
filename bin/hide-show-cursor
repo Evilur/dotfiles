@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# If cursor is NOT locked
+if ! [[ -f ~/.pointer.lock ]]; then
+    # Move the cursor to the screen corner
+    xdotool mousemove 0 9999
+
+    # Disable xinput device
+    for id in $(xinput |\
+            grep -w slave |\
+            grep -w pointer |\
+            grep -Eow 'id=[0-9]+' |\
+            grep -Eo '[0-9]+'); do
+        xinput disable $id
+    done
+
+    # Create .lock file
+    touch ~/.pointer.lock
+# If cursor is already locked
+else
+    # Move the cursor to the center of the screen
+    xdotool mousemove 1280 720
+
+        # Disable xinput device
+        for id in $(xinput |\
+            grep -w slave |\
+            grep -w floating |\
+            grep -Eow 'id=[0-9]+' |\
+            grep -Eo '[0-9]+'); do
+        xinput enable $id
+    done
+
+    # Remove .lock file
+    rm ~/.pointer.lock
+fi
