@@ -2,12 +2,9 @@
 # Applications #
 ################
 
-Alt_R
-    xkb-switch -s us
-
 # Google Chrome with the custom home page
 alt + b
-	google-chrome-stable --new-window file:///usr/share/HomePage/index.html
+	google-chrome-stable
 
 # Kitty terminal
 alt + t
@@ -53,16 +50,24 @@ XF86AudioMute
 # Misc #
 ########
 
+# Auto change layout to the english
+Alt_R
+    xkb-switch -s us
+
+# Hide/show the cursor
+alt + x
+    hide-show-cursor
+
 # Quit the BSPWM
-super + shift + q
+super + KP_Subtract
     bspc quit
 
 # Reload configs
-super + shift + r
+super + KP_Add
 	pkill -USR1 -x sxhkd && bspc wm -r
 
 # Turn off monitors
-super + shift + F10
+super + KP_Enter
 	sleep 1; xset dpms force off
 
 ###########
@@ -71,7 +76,7 @@ super + shift + F10
 
 # Close the application (Blibk with red if can't close)
 alt + {_,shift + }q
-	bspc node --{close,kill} || blink RED
+	bspc node --{close,kill} || bspc-blink RED
 
 # Hide/Show all windows
 alt + d
@@ -92,24 +97,14 @@ alt + shift + {h,l}
     bspc node --swap {prev,next}.local.window
 
 # Move the window (direction)
-super + shift + h
-    bspc node --move -20 0 || bspc node --swap west.local.window
-super + shift + j
-    bspc node --move 0 20  || bspc node --swap south.local.window
-super + shift + k
-    bspc node --move 0 -20 || bspc node --swap north.local.window
-super + shift + l
-    bspc node --move 20 0  || bspc node --swap east.local.window
+super + shift + {h,j,k,l}
+    bspc-move-window {-20 0 west,0 20 south,\
+                      0 -20 north,20 0 east}
 
 # Resize the window
-alt + ctrl + h
-    bspc node --resize right -20 0  || bspc node --resize left -20 0
-alt + ctrl + j
-    bspc node --resize bottom 0 20  || bspc node --resize top 0 20
-alt + ctrl + k
-    bspc node --resize bottom 0 -20 || bspc node --resize top 0 -20
-alt + ctrl + l
-    bspc node --resize right 20 0   || bspc node --resize left 20 0
+alt + ctrl + {h,j,k,l}
+    bspc-resize-window {right left -20 0,bottom top 0 20,\
+                        bottom top 0 -20,right left 20 0}
 
 # Set window status
 super + {n,m,comma,period}
@@ -117,7 +112,7 @@ super + {n,m,comma,period}
 
 # Set window flag (Blink with green if all is OK)
 super + {u,i,o,p}
-	bspc node --flag {marked,sticky,locked,private} && blink GREEN
+	bspc node --flag {marked,sticky,locked,private} && bspc-blink GREEN
 
 ############
 # Desktops #
