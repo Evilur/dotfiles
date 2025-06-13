@@ -1,38 +1,54 @@
-if [[ $(who | wc -l) == 1 ]]; then
-    touch ~/tmux.lock
-fi
-
 export PATH=/bin:/sbin:$HOME/.bin
+export LANG=ru_RU.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
-export LANG=ru_RU.UTF-8
+
+# C/C++ compile flags
+export CFLAGS=\
+'-Wall -Wextra -Wpedantic -Wshadow -Wcast-align -Wformat=2 -Wconversion '\
+'-Wsign-conversion -Wmissing-declarations -Wmissing-prototypes -Wlogical-op '\
+'-Wold-style-definition -Wstrict-prototypes -Wundef -Wwrite-strings '\
+'-Wswitch-enum -Wfloat-equal -Wpointer-arith -Winit-self -Wredundant-decls '\
+'-Wnested-externs -Wlogical-op -Wduplicated-cond -Wduplicated-branches '\
+'-Wstrict-aliasing=2 -Winline -Wstack-protector -Wstack-protector '\
+'-Wstrict-overflow=5 -Wcast-qual -Wmissing-noreturn -Wjump-misses-init'
+export CXXFLAGS=$CFLAGS
 
 # Primary colors
-export COLOR_TEXT='#cad3f5'
-export COLOR_SUBTEXT1='#b8c0e0'
-export COLOR_SUBTEXT0='#a5adcb'
-export COLOR_OVERLAY2='#939ab7'
-export COLOR_OVERLAY1='#8087a2'
-export COLOR_OVERLAY0='#6e738d'
-export COLOR_SURFACE2='#5b6078'
-export COLOR_SURFACE1='#494d64'
-export COLOR_SURFACE0='#363a4f'
-export COLOR_BASE='#24273a'
-export COLOR_MANTLE='#1e2030'
-export COLOR_CRUST='#181926'
+COLOR_CRUST='#181926'
+COLOR_MANTLE='#1e2030'
+COLOR_BASE='#24273a'
+COLOR_GREY_900='#353955'
+COLOR_GREY_800='#484e74'
+COLOR_GREY_700='#5a6191'
+COLOR_GREY_600='#6e76a5'
+COLOR_GREY_500='#8188b1'
+COLOR_GREY_400='#949abd'
+COLOR_GREY_300='#a4a8c6'
+COLOR_GREY_200='#b7bad2'
+COLOR_GREY_100='#caccde'
+COLOR_TEXT='#f2f4fd'
 
 # Secondary colors
-export COLOR_RED='#ff4064'
-export COLOR_RED_BRIGHT='#ff5c7b'
-export COLOR_GREEN=' #50fa7b'
-export COLOR_GREEN_BRIGHT='#69ff94'
-export COLOR_YELLOW=' #f3ff70'
-export COLOR_YELLOW_BRIGHT='#f7ff9e'
-export COLOR_BLUE='#297fff'
-export COLOR_BLUE_BRIGHT='#408dff'
-export COLOR_MAGENTA='#9252ff'
-export COLOR_MAGENTA_BRIGHT='#9f66ff'
-export COLOR_CYAN='#00d0ff'
-export COLOR_CYAN_BRIGHT='#5cd0ff'
-export COLOR_WHITE='#f8f8f8'
-export COLOR_WHITE_BRIGHT='#ffffff'
+COLOR_PINK='#ff52e9'
+COLOR_PINK_BRIGHT='#ff70f1'
+COLOR_RED='#ff4064'
+COLOR_RED_BRIGHT='#ff5c7b'
+COLOR_ORANGE='#ff8147'
+COLOR_ORANGE_BRIGHT='#ff9161'
+COLOR_GREEN='#50fa7b'
+COLOR_GREEN_BRIGHT='#69ff94'
+COLOR_YELLOW='#f3ff70'
+COLOR_YELLOW_BRIGHT='#f7ff9e'
+COLOR_CYAN='#00d0ff'
+COLOR_CYAN_BRIGHT='#5cd0ff'
+COLOR_BLUE='#297fff'
+COLOR_BLUE_BRIGHT='#408dff'
+COLOR_PURPLE='#9252ff'
+COLOR_PURPLE_BRIGHT='#9f66ff'
+
+# If there is only one user and this is a local session (not ssh)
+if [[ $(who | wc -l) == 1 ]] && [[ $(tty) == /dev/tty1 ]]; then
+    # Start X-server
+    exec startx
+fi
