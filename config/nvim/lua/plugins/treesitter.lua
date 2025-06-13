@@ -35,7 +35,7 @@ return {
                 'yaml'
             },
             highlight = { enable = true },
-            indent = { enable = true }
+            indent = { enable = true },
         }
 
         -- Set fold method
