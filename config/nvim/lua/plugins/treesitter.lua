@@ -1,10 +1,10 @@
 return {
-    'nvim-treesitter/nvim-treesitter', 
-    lazy = false, 
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     build = ':TSUpdate',
     config = function()
         require('nvim-treesitter.configs').setup {
-            ensure_installed = { 
+            ensure_installed = {
                 'bash',
                 'c',
                 'cmake',
@@ -37,5 +37,10 @@ return {
             highlight = { enable = true },
             indent = { enable = true }
         }
+
+        -- Set fold method
+        vim.o.foldmethod = 'expr'
+        vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+        vim.o.foldlevel = 99
     end
 }
