@@ -34,11 +34,11 @@ alt + F10
 # Alarm #
 #########
 
-# Enter the space key (pause the video) and 'alt + tab' (alt + n)
+# Enter the space key (pause the video) and 'alt + tab' (alt + space)
 XF86AudioLowerVolume
 	xdotool key space; bspc desktop -f last.local
 
-# Mute the audio, enter the space (pause the video) and 'alt + tab' (alt + n)
+# Mute the audio, enter the space (pause the video) and 'alt + tab' (alt + space)
 XF86AudioRaiseVolume
 	pactl set-sink-mute @DEFAULT_SINK@ false; xdotool key space; bspc desktop -f last.local
 
@@ -64,7 +64,7 @@ super + KP_Subtract
 
 # Reload configs
 super + KP_Add
-	pkill -USR1 -x sxhkd && bspc wm -r
+	pkill -USR1 -x sxhkd; bspc wm -r
 
 # Turn off monitors
 super + KP_Enter
@@ -98,13 +98,13 @@ alt + shift + {h,l}
 
 # Move the window (direction)
 super + shift + {h,j,k,l}
-    bspc-move-window {-20 0 west,0 20 south,\
-                      0 -20 north,20 0 east}
+    bspc-move-window {-100 0 west, 0 100 south,\
+                      0 -100 north, 100 0 east}
 
 # Resize the window
 alt + ctrl + {h,j,k,l}
-    bspc-resize-window {right left -20 0,bottom top 0 20,\
-                        bottom top 0 -20,right left 20 0}
+    bspc-resize-window {right left -100 0,bottom top 0 100,\
+                        bottom top 0 -100,right left 100 0}
 
 # Set window status
 super + {n,m,comma,period}
@@ -123,7 +123,7 @@ alt + m
 	bspc desktop -l next
 
 # Focus to the last desktop
-alt + n
+alt + space
 	bspc desktop --focus last.local
 
 # Focus to the prev/next desktop
@@ -135,7 +135,7 @@ alt + {0-9}
     bspc desktop --focus ^{0-9}
 
 # Move the focused window to the last desktop
-alt + shift + n
+alt + shift + space
     bspc node --to-desktop last.local --follow
 
 # Move the focused window to the prev/next desktop
