@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+set -e
+
+# Set sudo command
+readonly SUDO=doas
+
+# Remove unneccesary dependencies
+$SUDO paru -cc --noconfirm
+
+# Full system upgrade
+paru --sudo $SUDO -Syyu --noconfirm
+
+# Clear the cache
+$SUDO rm -rf ~/.cache/paru/*
+$SUDO rm -rf /var/cache/pacman/pkg/*
+
+# Backup initramfs
+$SUDO mv -v /boot/initramfs* /tmp
+
+# Try to regenerate the boot image
+$SUDO dracut --force --regenerate-all || {
+    # If the regenerating has been canceled, restore the backup
+    mv -v /tmp/initramfs* /boot
+
+    # Exit with the error code
+    exit 1
+}
+
+# If all is OK, set the right name
+$SUDO mv /boot/initramfs* /boot/initramfs-linux.img
+
+# Exit with the success code
+exit 0
