@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end
 })
 
+vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showcmd = true
