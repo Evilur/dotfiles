@@ -1,4 +1,4 @@
-export PATH=/bin:/sbin:$HOME/.bin
+export PATH=/bin:/sbin:$HOME/.local/bin
 export LANG=ru_RU.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
@@ -12,43 +12,53 @@ export CFLAGS=\
 '-Wnested-externs -Wlogical-op -Wduplicated-cond -Wduplicated-branches '\
 '-Wstrict-aliasing=2 -Winline -Wstack-protector -Wstack-protector '\
 '-Wstrict-overflow=5 -Wcast-qual -Wmissing-noreturn -Wjump-misses-init'
-export CXXFLAGS=$CFLAGS
 
 # Primary colors
-COLOR_CRUST='#181926'
-COLOR_MANTLE='#1e2030'
-COLOR_BASE='#24273a'
-COLOR_GREY_900='#353955'
-COLOR_GREY_800='#484e74'
-COLOR_GREY_700='#5a6191'
-COLOR_GREY_600='#6e76a5'
-COLOR_GREY_500='#8188b1'
-COLOR_GREY_400='#949abd'
-COLOR_GREY_300='#a4a8c6'
-COLOR_GREY_200='#b7bad2'
-COLOR_GREY_100='#caccde'
-COLOR_TEXT='#f2f4fd'
+export COLOR_CRUST='#181926'
+export COLOR_MANTLE='#1e2030'
+export COLOR_BASE='#24273a'
+export COLOR_GREY_900='#353955'
+export COLOR_GREY_800='#484e74'
+export COLOR_GREY_700='#5a6191'
+export COLOR_GREY_600='#6e76a5'
+export COLOR_GREY_500='#8188b1'
+export COLOR_GREY_400='#949abd'
+export COLOR_GREY_300='#a4a8c6'
+export COLOR_GREY_200='#b7bad2'
+export COLOR_GREY_100='#caccde'
+export COLOR_TEXT='#f2f4fd'
 
 # Secondary colors
-COLOR_PINK='#ff52e9'
-COLOR_PINK_BRIGHT='#ff70f1'
-COLOR_RED='#ff4064'
-COLOR_RED_BRIGHT='#ff5c7b'
-COLOR_ORANGE='#ff8147'
-COLOR_ORANGE_BRIGHT='#ff9161'
-COLOR_GREEN='#50fa7b'
-COLOR_GREEN_BRIGHT='#69ff94'
-COLOR_YELLOW='#f3ff70'
-COLOR_YELLOW_BRIGHT='#f7ff9e'
-COLOR_CYAN='#00d0ff'
-COLOR_CYAN_BRIGHT='#5cd0ff'
-COLOR_BLUE='#297fff'
-COLOR_BLUE_BRIGHT='#408dff'
-COLOR_PURPLE='#9252ff'
-COLOR_PURPLE_BRIGHT='#9f66ff'
+export COLOR_PINK='#ff52e9'
+export COLOR_PINK_BRIGHT='#ff70f1'
+export COLOR_RED='#ff4064'
+export COLOR_RED_BRIGHT='#ff5c7b'
+export COLOR_ORANGE='#ff8147'
+export COLOR_ORANGE_BRIGHT='#ff9161'
+export COLOR_GREEN='#50fa7b'
+export COLOR_GREEN_BRIGHT='#69ff94'
+export COLOR_YELLOW='#f3ff70'
+export COLOR_YELLOW_BRIGHT='#f7ff9e'
+export COLOR_CYAN='#00d0ff'
+export COLOR_CYAN_BRIGHT='#5cd0ff'
+export COLOR_BLUE='#297fff'
+export COLOR_BLUE_BRIGHT='#408dff'
+export COLOR_DARK_BLUE='#476aff'
+export COLOR_DARK_BLUE_BRIGHT='#5c7bff'
+export COLOR_PURPLE='#9252ff'
+export COLOR_PURPLE_BRIGHT='#9f66ff'
 
 # If there is only one user and this is a local session (not ssh)
-if [[ $(who | wc -l) == 1 ]] && [[ $(tty) == /dev/tty1 ]]; then
-    # Start X-server
-    exec startx
+if [[ $(who | wc -l) == 1 && $(tty) == /dev/tty1 ]]; then
+    # Ask a question
+    echo -n 'Are you want to start X-server? [Y/n]: '
+
+    # Get an answer
+    read -k answer
+
+    # Check the answer
+    if [[ "$answer" == $'\n' || "$answer" == 'y' || "$answer" == 'Y' ]]; then
+        # Run the X-server is the user wants it
+        exec startx
+    fi
 fi
