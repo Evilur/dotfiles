@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+##
+# Renice the process tree recursively
+# @param 1 the root process PID
+##
+local parent=$1
+renice -n -20 -p "$parent" 2>/dev/null
+
+for child in $(ps --ppid "$parent" -o pid=); do
+    renice-tree "$child"
+done
