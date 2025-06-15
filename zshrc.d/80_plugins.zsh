@@ -71,9 +71,11 @@ ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
 # 1000 seconds delay (disable essentialy)
 ZVM_ESCAPE_KEYTIMEOUT=1000
 
+
 # Set keybindings
 zvm_after_init() {
-    bindkey -M viins '^J' self-insert-unmeta
+    export KEYTIMEOUT=1
+    run-bindkeys
 }
 
 #####################
