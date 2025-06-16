@@ -3,9 +3,9 @@ return {
     lazy = false,
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-        require('nvim-tree').setup({
-            sort = {
-                sorter = 'case_sensitive',
+        require("nvim-tree").setup({
+            filters = {
+                custom = { "^.git$" }
             }
         })
     end
