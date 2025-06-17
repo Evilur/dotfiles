@@ -77,7 +77,7 @@ precmd() {
 }
 
 # Set the PS1 prompt
-readonly PS1=\
+PS1=\
 '%B%F{'$PS_REG'}┌──(%F{%(!.'$PS_ROOT'.'$PS_REG')}%n'$PS_SPLIT'%M%F{'$PS_REG'})\
 -[%f$(spwd -s $SPWD_SUBTRACT)%F{'$PS_REG'}]\
 %(?..-[%f%?'$PS_ERROR'%F{'$PS_REG'}])\
@@ -85,10 +85,10 @@ readonly PS1=\
 └─%F{%(!.'$PS_ROOT'.'$PS_REG')}%(!.#.$)%f%b '
 
 # Set the PS2 prompt
-readonly PS2='%B%F{%(!.'$PS_ROOT'.'$PS_REG'}>>>%f%b '
+PS2='%B%F{%(!.'$PS_ROOT'.'$PS_REG'}>>>%f%b '
 
 # Set the right prompt
-readonly RPROMPT=
+RPROMPT=
 
 unset PS_SPLIT
 unset PS_ERROR
