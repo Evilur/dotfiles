@@ -48,17 +48,8 @@ export COLOR_DARK_BLUE_BRIGHT='#5c7bff'
 export COLOR_PURPLE='#9252ff'
 export COLOR_PURPLE_BRIGHT='#9f66ff'
 
-# If there is only one user and this is a local session (not ssh)
+# If there is only one user and this is a local session (not ssh) in tty1
 if [[ $(who | wc -l) == 1 && $(tty) == /dev/tty1 ]]; then
-    # Ask a question
-    echo -n 'Are you want to start X-server? [Y/n]: '
-
-    # Get an answer
-    read -k answer
-
-    # Check the answer
-    if [[ "$answer" == $'\n' || "$answer" == 'y' || "$answer" == 'Y' ]]; then
-        # Run the X-server is the user wants it
-        exec startx
-    fi
+    # Run the X-server
+    exec startx
 fi
