@@ -18,8 +18,6 @@ map('n', '<leader>$', ':bl<CR>', opts)
 -- QoL
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
 map('n', '<leader>w', ':w<CR>', opts)
-map('n', '<leader>q', ':q<CR>', opts)
 map('n', '<leader>o', 'o<Esc>k', opts)
 map('n', '<leader>O', 'O<Esc>j', opts)
-
 map('n', '<leader>u', ':colorscheme evilur<CR>', opts)

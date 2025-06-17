@@ -1,5 +1,6 @@
 return {
     'Evilur/EvilurTheme-Nvim',
+    pin = true,
     lazy = false,
     priority = 1000,
     config = function()
