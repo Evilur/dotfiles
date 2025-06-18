@@ -81,7 +81,7 @@ return {
                 -- [focused and unfocused]. eg: { '|', '|' }
                 --separator_style = 'slant' | 'slope' | 'thick' | 'thin' | { 'any', 'any' },
                 --enforce_regular_tabs = false | true,
-                --always_show_bufferline = true | false,
+                always_show_bufferline = false,
                 --auto_toggle_bufferline = true | false,
                 hover = {
                     enabled = true,

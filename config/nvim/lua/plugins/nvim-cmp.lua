@@ -7,30 +7,32 @@ return {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/nvim-cmp',
+        'Jezda1337/nvim-html-css'
     },
     config = function()
         local cmp = require('cmp')
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
                 ['<Tab>'] = cmp.mapping.select_next_item(),
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
                 ['<C-e>'] = cmp.mapping.abort(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true })
             }),
             window = {
                 completion = {
                     border = 'single',
-                    winhighlight = 'Normal:Pmenu,CursorLine:PmenuSel',
                     scrollbar = false,
+                    winhighlight = 'Normal:Pmenu,FloatBorder:PmenuBorder,' ..
+                                   'CursorLine:PmenuSel,Search:None'
                 },
-                documentation = {
-                    border = 'signle',
-                    winhighlight = 'Normal:Pmenu,CursorLine:PmenuSel',
-                }
+                documentation = { border = 'single' }
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'buffer' },
+                { name = 'path' },
+                { name = 'nvim-html-css' }
             }),
             formatting = {
                 format = require('lspkind').cmp_format({

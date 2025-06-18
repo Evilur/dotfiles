@@ -21,6 +21,7 @@ return {
                 'git_rebase',
                 'go',
                 'html',
+                'java',
                 'javadoc',
                 'javascript',
                 'jsdoc',
