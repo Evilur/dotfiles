@@ -90,6 +90,10 @@ PS2='%B%F{%(!.'$PS_ROOT'.'$PS_REG'}>>>%f%b '
 # Set the right prompt
 RPROMPT=
 
+# Set end of line mark
+PROMPT_EOL_MARK=
+
+# Clear the environment
 unset PS_SPLIT
 unset PS_ERROR
 unset PS_BG

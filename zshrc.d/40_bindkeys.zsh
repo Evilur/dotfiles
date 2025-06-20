@@ -3,7 +3,6 @@ run-bindkeys() {
     bindkey -M menuselect 'j' down-line-or-history
     bindkey -M menuselect 'k' up-line-or-history
     bindkey -M menuselect 'l' forward-char
-    bindkey -M menuselect ' ' accept-and-infer-next-history
     bindkey -M menuselect 'q' send-break
     bindkey -M menuselect '^[' send-break
 
