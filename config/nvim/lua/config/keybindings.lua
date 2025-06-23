@@ -15,7 +15,7 @@ map('n', '<leader>k', ':bn<CR>', opts)
 map('n', '<leader>0', ':bf<CR>', opts)
 map('n', '<leader>$', ':bl<CR>', opts)
 
--- QoL
+-- Misc
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
 map('n', '<leader>w', ':w<CR>', opts)
 map('n', '<leader>q', ':q<CR>', opts)
@@ -23,9 +23,12 @@ map('n', '<leader>o', 'o<Esc>k', opts)
 map('n', '<leader>O', 'O<Esc>j', opts)
 map('n', '<leader>u', ':colorscheme evilur<CR>', opts)
 
+-- Nvim Tree
+map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
+
 -- Build
-map('n', '<F5>', ':terminal make run<CR>', opts)
-map('n', '<leader>O', 'O<Esc>j', opts)
+map('n', '<F5>', ':belowright terminal make run<CR>i', opts)
+map('n', '<F7>', ':belowright terminal make clean<CR>i', opts)
 
 -- Lsp
 map('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', opts)
