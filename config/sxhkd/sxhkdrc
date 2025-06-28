@@ -130,9 +130,9 @@ alt + space
 alt + {j,k}
 	bspc desktop --focus {prev,next}.local
 
-# Focus to the {0-9} desktop
-alt + {0-9}
-    bspc desktop --focus ^{0-9}
+# Focus to the {1-9} desktop
+alt + {1-9}
+    bspc desktop --focus {1-9}
 
 # Move the focused window to the last desktop
 alt + shift + space
@@ -142,9 +142,9 @@ alt + shift + space
 alt + shift + {j,k}
 	bspc node --to-desktop {prev,next}.local --follow
 
-# Move the focused window to the {0-9} desktop
-alt + shift + {0-9}
-    bspc node --to-desktop ^{0-9} --follow
+# Move the focused window to the {1-9} desktop
+alt + shift + {1-9}
+    bspc node --to-desktop {1-9} --follow
 
 ############
 # Monitors #
