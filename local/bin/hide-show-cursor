@@ -19,7 +19,7 @@ if ! [[ -f ~/.pointer.lock ]]; then
 # If cursor is already locked
 else
     # Move the cursor to the center of the screen
-    xdotool mousemove 1280 720
+    xdotool mousemove 3200 720
 
         # Disable xinput device
         for id in $(xinput |\

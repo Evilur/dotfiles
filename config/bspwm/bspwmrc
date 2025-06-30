@@ -42,11 +42,6 @@ xsetroot -cursor_name left_ptr &
 bspc monitor DisplayPort-0 -d 1 2 3 4 5
 bspc monitor HDMI-A-1      -d 6 7 8 9
 
-# Pointer actions
-bspc config pointer_modifier mod1
-bspc config pointer_action1  move
-bspc config pointer_action2  resize_side
-
 # Settings
 bspc config border_width          5
 bspc config window_gap            15

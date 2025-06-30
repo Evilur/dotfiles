@@ -153,3 +153,6 @@ alt + shift + {1-9}
 # Focus to the other monitor
 alt + i
 	bspc monitor --focus next
+
+alt + shift + i
+    bspc node --to-monitor next --follow
