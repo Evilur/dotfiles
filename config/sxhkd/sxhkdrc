@@ -51,7 +51,7 @@ XF86AudioMute
 ########
 
 # Auto change layout to the english
-Alt_R
+{Alt_L,Alt_R}
     xkb-switch -s us
 
 # Hide/show the cursor
