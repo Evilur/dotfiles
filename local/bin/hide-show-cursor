@@ -3,7 +3,7 @@
 # If cursor is NOT locked
 if ! [[ -f ~/.pointer.lock ]]; then
     # Move the cursor to the screen corner
-    xdotool mousemove 9999 720
+    xdotool mousemove 0 1429
 
     # Disable xinput device
     for id in $(xinput |\
