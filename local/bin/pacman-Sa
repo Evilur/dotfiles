@@ -5,14 +5,10 @@ set -e
 readonly SUDO=doas
 
 # Remove unneccesary dependencies
-$SUDO paru -cc --noconfirm
+paru --sudo $SUDO -cc --noconfirm
 
 # Full system upgrade
 paru --sudo $SUDO -Syyu --noconfirm
-
-# Clear the cache
-$SUDO rm -rf ~/.cache/paru/*
-$SUDO rm -rf /var/cache/pacman/pkg/*
 
 # Backup initramfs
 $SUDO mv -v /boot/initramfs* /tmp

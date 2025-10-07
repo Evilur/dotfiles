@@ -7,13 +7,16 @@ if [[ -z "$@" ]]; then
 fi
 
 # Kill all unnecessary processes
-killall polybar &
 killall picom &
 killall conky &
 
+# Keyboard layout switch variables
+export XKB_DEFAULT_LAYOUT='us,ru'
+export XKB_DEFAULT_OPTIONS='grp:caps_toggle'
+
 # Run the game in the background
 gamescope -W 2560 -H 1440 -w 1920 -h 1080 -r 85 -f \
-    --force-grab-cursor -F fsr -- gamemoderun "$@" &
+    -F fsr -- gamemoderun "$@" &
 
 # Get the task pid
 readonly TASK_PID=$!

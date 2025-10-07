@@ -8,11 +8,11 @@ alt + b
 
 # Kitty terminal
 alt + t
-	kitty
+	xkb-switch -s us && kitty
 
 # Rofi
 alt + a
-	rofi -theme ~/.config/rofi/config.rasi -show drun
+	xkb-switch -s us && rofi -m 1 -theme ~/.config/rofi/config.rasi -show drun
 
 # Calculator
 alt + c
@@ -50,13 +50,9 @@ XF86AudioMute
 # Misc #
 ########
 
-# Auto change layout to the english
-{Alt_L,Alt_R}
-    xkb-switch -s us
-
 # Hide/show the cursor
 alt + x
-    hide-show-cursor
+    pointer-lock
 
 # Quit the BSPWM
 super + KP_Subtract
@@ -80,9 +76,7 @@ alt + {_,shift + }q
 
 # Hide/Show all windows
 alt + d
-    for window in $(bspc query --nodes --node .window.local); do \
-        bspc node $window --flag hidden; \
-    done
+    bspc query --nodes -n .window | xargs -I\{\} bspc node \{\} -g hidden
 
 # Focus the window
 alt + {h,l}
@@ -130,9 +124,9 @@ alt + space
 alt + {j,k}
 	bspc desktop --focus {prev,next}.local
 
-# Focus to the {1-9} desktop
-alt + {1-9}
-    bspc desktop --focus {1-9}
+# Focus to the {0-9} desktop
+alt + {0-9}
+    bspc desktop --focus {0-9}
 
 # Move the focused window to the last desktop
 alt + shift + space
@@ -142,9 +136,9 @@ alt + shift + space
 alt + shift + {j,k}
 	bspc node --to-desktop {prev,next}.local --follow
 
-# Move the focused window to the {1-9} desktop
-alt + shift + {1-9}
-    bspc node --to-desktop {1-9} --follow
+# Move the focused window to the {0-9} desktop
+alt + shift + {0-9}
+    bspc node --to-desktop {0-9} --follow
 
 ############
 # Monitors #

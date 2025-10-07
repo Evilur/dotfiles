@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 
+# File to monitor the pointer state
+LOCK_FILE=/tmp/$USER.pointer.lock
+
 # If cursor is NOT locked
-if ! [[ -f ~/.pointer.lock ]]; then
+if ! [[ -f $LOCK_FILE ]]; then
     # Move the cursor to the screen corner
     xdotool mousemove 0 1429
 
@@ -15,7 +18,7 @@ if ! [[ -f ~/.pointer.lock ]]; then
     done
 
     # Create .lock file
-    touch ~/.pointer.lock
+    touch $LOCK_FILE
 # If cursor is already locked
 else
     # Move the cursor to the center of the screen
@@ -31,5 +34,5 @@ else
     done
 
     # Remove .lock file
-    rm ~/.pointer.lock
+    rm $LOCK_FILE
 fi
