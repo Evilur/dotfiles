@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+# Check for root user
+if [ "$EUID" -ne 0 ]
+    then exec doas $0 $*
+fi
+
+# Set variables
+EXEC_USER="$1"
+shift
+EXEC_CMD="$@"
+
+ip netns exec wg_ns su $EXEC_USER -c "$EXEC_CMD"
