@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+# If we have a window which is not hidden
+if ! [ -z "$(bspc query --nodes -n .window.!hidden)" ]; then
+    # Hidden all not hiddenned windows
+    bspc query --nodes -n .window.!hidden |
+        xargs -I\{\} bspc node \{\} --flag hidden=on
+else
+    # Show all windows
+    bspc query --nodes -n .window |
+        xargs -I\{\} bspc node \{\} --flag hidden=off
+fi
