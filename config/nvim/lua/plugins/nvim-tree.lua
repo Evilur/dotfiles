@@ -4,7 +4,10 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
         require('nvim-tree').setup({
-            view = { width = 25 },
+            view = {
+                width = 32,
+                signcolumn = 'no'
+            },
             filters = {
                 custom = { '^\\.git$' }
             }

@@ -1,6 +1,30 @@
 return {
-    {
+    'mason-org/mason-lspconfig.nvim',
+    opts = {
+        automatic_enable = true,
+        ensure_installed = {
+            'bashls',
+            'clangd',
+            'cmake',
+            'cssls',
+            'docker_compose_language_service',
+            'dockerls',
+            'eslint',
+            'html',
+            'jdtls',
+            'jsonls',
+            'lemminx',
+            'lua_ls',
+            'marksman',
+            'omnisharp',
+            'pyright',
+            'qmlls',
+            'ts_ls',
+            'yamlls',
+        },
+    },
+    dependencies = {
+        { 'mason-org/mason.nvim', opts = {} },
         'neovim/nvim-lspconfig',
-        lazy = false
-    }
+    },
 }
