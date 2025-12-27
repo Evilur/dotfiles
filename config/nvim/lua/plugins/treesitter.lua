@@ -2,6 +2,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
     build = ':TSUpdate',
+    branch = 'master',
     config = function()
         require('nvim-treesitter.configs').setup {
             ensure_installed = {
@@ -28,6 +29,7 @@ return {
                 'json',
                 'make',
                 'python',
+                'qmljs',
                 'ssh_config',
                 'tmux',
                 'typescript',
@@ -42,10 +44,5 @@ return {
                 enable = true
             }
         }
-
-        -- Set fold method
-        vim.o.foldmethod = 'expr'
-        vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-        vim.o.foldlevel = 99
     end
 }

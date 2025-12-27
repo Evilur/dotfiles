@@ -21,7 +21,7 @@ map('n', '<leader>w', ':w<CR>', opts)
 map('n', '<leader>q', ':q<CR>', opts)
 map('n', '<leader>o', 'o<Esc>k', opts)
 map('n', '<leader>O', 'O<Esc>j', opts)
-map('n', '<leader>u', ':colorscheme evilur<CR>', opts)
+map('n', '<leader>u', ':colorscheme night-owls-song<CR>', opts)
 
 -- Nvim Tree
 map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
