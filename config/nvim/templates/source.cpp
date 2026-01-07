@@ -1,0 +1,3 @@
+#include "{{filename}}.h"
+
+{{cursor}}
