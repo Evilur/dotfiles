@@ -3,15 +3,21 @@ export LANG=ru_RU.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
 
-# C/C++ compile flags
-export CFLAGS=\
-'-Wall -Wextra -Wpedantic -Wshadow -Wcast-align -Wformat=2 -Wconversion '\
-'-Wsign-conversion -Wmissing-declarations -Wmissing-prototypes -Wlogical-op '\
-'-Wold-style-definition -Wstrict-prototypes -Wundef -Wwrite-strings '\
-'-Wswitch-enum -Wfloat-equal -Wpointer-arith -Winit-self -Wredundant-decls '\
-'-Wnested-externs -Wlogical-op -Wduplicated-cond -Wduplicated-branches '\
-'-Wstrict-aliasing=2 -Winline -Wstack-protector -Wstack-protector '\
-'-Wstrict-overflow=5 -Wcast-qual -Wmissing-noreturn -Wjump-misses-init'
+# Cmake
+export CMAKE_GENERATOR='Ninja'
+export CMAKE_BUILD_TYPE='Release'
+
+# Toolchain
+export CC='gcc'
+export CXX='g++'
+export LD='ld'
+export AR='ar'
+export RANLIB='ranlib'
+export AS='as'
+
+# Flags
+export CFLAGS='-O2 -g0 -flto -funroll-loops'
+export CXXFLAGS=$CFLAGS
 
 # Primary colors
 export COLOR_CRUST='#181926'
@@ -37,8 +43,8 @@ export COLOR_ORANGE='#ff8147'
 export COLOR_ORANGE_BRIGHT='#ff9161'
 export COLOR_GREEN='#50fa7b'
 export COLOR_GREEN_BRIGHT='#69ff94'
-export COLOR_YELLOW='#f3ff70'
-export COLOR_YELLOW_BRIGHT='#f7ff9e'
+export COLOR_YELLOW='#fffb70'
+export COLOR_YELLOW_BRIGHT='#fffb80'
 export COLOR_CYAN='#00d0ff'
 export COLOR_CYAN_BRIGHT='#5cd0ff'
 export COLOR_BLUE='#0077ff'
