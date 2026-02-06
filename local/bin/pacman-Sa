@@ -14,7 +14,7 @@ paru --sudo $SUDO -Syyu --noconfirm
 $SUDO mv -v /boot/initramfs* /tmp
 
 # Try to regenerate the boot image
-$SUDO dracut --force --regenerate-all || {
+$SUDO dracut --force --regenerate-all --verbose || {
     # If the regenerating has been canceled, restore the backup
     mv -v /tmp/initramfs* /boot
 
@@ -23,7 +23,7 @@ $SUDO dracut --force --regenerate-all || {
 }
 
 # If all is OK, set the right name
-$SUDO mv /boot/initramfs* /boot/initramfs-linux.img
+$SUDO mv -v /boot/initramfs* /boot/initramfs-linux.img
 
 # Exit with the success code
 exit 0
