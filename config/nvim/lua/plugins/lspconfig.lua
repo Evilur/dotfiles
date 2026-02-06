@@ -18,7 +18,6 @@ return {
             'marksman',
             'omnisharp',
             'pyright',
-            'qmlls',
             'ts_ls',
             'yamlls',
         },

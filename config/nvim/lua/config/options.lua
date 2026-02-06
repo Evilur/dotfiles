@@ -1,5 +1,6 @@
 local opt = vim.opt
 opt.autoindent      = true
+opt.breakindent     = true
 opt.colorcolumn     = '80'
 opt.conceallevel    = 2
 opt.cursorline      = true
@@ -23,5 +24,5 @@ opt.softtabstop     = 4
 opt.tabstop         = 4
 opt.termguicolors   = true
 opt.timeout         = false
-opt.winborder         = 'rounded'
+opt.winborder       = 'rounded'
 opt.wrap            = false

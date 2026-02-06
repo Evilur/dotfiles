@@ -9,9 +9,9 @@ map('n', '<leader>p', '"+p', opts)
 map('n', '<leader>P', '"+P', opts)
 
 -- Buffers
-map('n', '<leader>w', ':w<CR>', opts)
+map('n', '<leader>w', ':wa<CR>', opts)
 map('n', '<leader>q', ':q<CR>', opts)
-map('n', '<leader>x', ':bdelete<CR>', opts)
+map('n', '<leader>x', ':Bdelete<CR>', opts)
 map('n', '<leader>j', ':bprev<CR>', opts)
 map('n', '<leader>k', ':bnext<CR>', opts)
 map('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', opts)
