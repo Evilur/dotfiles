@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
 # Mouse sensensity
-xinput set-prop 12 'libinput Accel Speed' -0.8
-xinput set-prop 12 'libinput Accel Profile Enabled' 0, 1
+readonly MOUSE_PROP=11
+xinput set-prop $MOUSE_PROP 'libinput Accel Speed' -0.70
+xinput set-prop $MOUSE_PROP 'libinput Accel Profile Enabled' 0, 1
 
 # Monitors
 xrandr --output HDMI-A-1 \
@@ -40,7 +41,7 @@ xsetroot -cursor_name left_ptr &
 
 # Workspaces
 bspc monitor DisplayPort-0 -d 1 2 3 4 5
-bspc monitor HDMI-A-1      -d 6 7 8 9
+bspc monitor HDMI-A-1      -d 6 7 8 9 0
 
 # Settings
 bspc config border_width          5

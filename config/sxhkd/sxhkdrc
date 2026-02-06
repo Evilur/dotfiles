@@ -2,9 +2,13 @@
 # Applications #
 ################
 
-# Google Chrome with the custom home page
+# Google Chrome with WireGuard VPN
 alt + b
-	google-chrome-stable
+	wg-ns $USER google-chrome-stable
+
+# Discord with WireGuard VPN
+alt + d
+    MESA_LOADER_DRIVER_OVERRIDE=radeon wg-ns $USER discord
 
 # Kitty terminal
 alt + t
@@ -17,6 +21,10 @@ alt + a
 # Calculator
 alt + c
     gnome-calculator
+
+# Messenger
+alt + e
+    Telegram
 
 # Obsidian
 alt + o
@@ -40,7 +48,7 @@ XF86AudioLowerVolume
 
 # Mute the audio, enter the space (pause the video) and 'alt + tab' (alt + space)
 XF86AudioRaiseVolume
-	pactl set-sink-mute @DEFAULT_SINK@ false; xdotool key space; bspc desktop -f last.local
+	xdotool key space; bspc desktop -f last.local
 
 # Mute/unmute the audio
 XF86AudioMute
@@ -58,6 +66,10 @@ alt + x
 super + KP_Subtract
     bspc quit
 
+# Disable picom frame limit
+super + KP_Multiply
+    pkill conky; pkill picom
+
 # Reload configs
 super + KP_Add
 	pkill -USR1 -x sxhkd; bspc wm -r
@@ -74,9 +86,9 @@ super + KP_Enter
 alt + {_,shift + }q
 	bspc node --{close,kill} || bspc-blink RED
 
-# Hide/Show all windows
-alt + d
-    bspc query --nodes -n .window | xargs -I\{\} bspc node \{\} -g hidden
+# Show desktop
+super + d
+    show-desktop
 
 # Focus the window
 alt + {h,l}
