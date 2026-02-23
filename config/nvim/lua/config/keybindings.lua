@@ -1,4 +1,3 @@
-vim.g.mapleader = ' '
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -25,6 +24,21 @@ map('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>', opts)
 map('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', opts)
 map('n', '<leader>$', ':BufferLineGoToBuffer -1<CR>', opts)
 
+-- Splits
+map('n', 's', '<C-w>', opts);
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-l>', '<C-w>l', opts)
+map('n', '<C-n>', '<C-w>w', opts)
+map('n', '<C-p>', '<C-w>W', opts)
+
+-- Insert mode movement
+map('i', '<C-j>', '<Down>', opts)
+map('i', '<C-k>', '<Up>', opts)
+map('i', '<C-h>', '<Left>', opts)
+map('i', '<C-l>', '<Right>', opts)
+
 -- Misc
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
 map('n', '<leader>o', 'o<Esc>k', opts)
@@ -35,12 +49,14 @@ map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
 
 -- Build
 map('n', '<F5>', ':belowright terminal make -f nvim.Makefile run<CR>i', opts)
+map('n', '<F6>', ':terminal make -f nvim.Makefile debug<CR>i', opts)
 map('n', '<F7>', ':belowright terminal make -f nvim.Makefile clean<CR>i', opts)
 
 -- Lsp
-map('n', '<leader>rn', vim.lsp.buf.rename, opts)
-map('n', '<leader>gd', vim.lsp.buf.definition, opts)
-map('n', '<leader>gr', vim.lsp.buf.references, opts)
-map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+local lsp_buf = vim.lsp.buf
+map('n', '<leader>rn', lsp_buf.rename, opts)
+map('n', '<leader>gd', lsp_buf.definition, opts)
+map('n', '<leader>gr', lsp_buf.references, opts)
+map('n', '<leader>ca', lsp_buf.code_action, opts)
+map('n', '<leader>K', lsp_buf.hover, opts)
 map('n', 'K', vim.diagnostic.open_float, opts)
-map('n', '<leader>K', vim.lsp.buf.hover, opts)

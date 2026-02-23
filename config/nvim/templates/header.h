@@ -2,8 +2,9 @@
 
 /**
  * {{cursor}}
- * @author {{author}} {{email}}
+ * @author {{author}} <{{email}}>
  */
 class {{filename_camel_case}} final {
+public:
 
 };

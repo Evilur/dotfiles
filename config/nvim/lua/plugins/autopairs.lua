@@ -11,10 +11,10 @@ return {
             enable_bracket_in_quote = true,
             break_undo = true,
             check_ts = true,
-            map_cr = true,
+            map_cr = false,
             map_bs = true,
-            map_c_h = true,
-            map_c_w = true,
+            map_c_h = false,
+            map_c_w = false,
         })
     end
 }
