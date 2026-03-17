@@ -43,6 +43,7 @@ map('i', '<C-l>', '<Right>', opts)
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
 map('n', '<leader>o', 'o<Esc>k', opts)
 map('n', '<leader>O', 'O<Esc>j', opts)
+map('n', '<leader>g', ':Gitsigns ', opts)
 
 -- Nvim Tree
 map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)

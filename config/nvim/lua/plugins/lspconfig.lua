@@ -1,30 +1,15 @@
 return {
-    'mason-org/mason-lspconfig.nvim',
-    opts = {
-        automatic_enable = true,
-        ensure_installed = {
-            'bashls',
-            'clangd',
-            'cmake',
-            'cssls',
-            'docker_compose_language_service',
-            'dockerls',
-            'eslint',
-            'html',
-            'jdtls',
-            'jsonls',
-            'lemminx',
-            'lua_ls',
-            'marksman',
-            'omnisharp',
-            'pyright',
-            'ts_ls',
-            'yamlls',
-        },
-    },
+    'neovim/nvim-lspconfig',
     dependencies = {
-        { 'mason-org/mason.nvim', opts = {} },
-        'neovim/nvim-lspconfig',
+        'mason-org/mason.nvim',
+        'mason-org/mason-lspconfig.nvim',
         'hrsh7th/nvim-cmp'
-    }
+    },
+    config = function()
+        vim.lsp.config('omnisharp_mono', {
+            cmd = { 'mono',
+                    '/home/evilur/.local/share/nvim/mason/packages/omnisharp-mono/omnisharp/OmniSharp.exe',
+                    '--languageserver', '--hostPID', tostring(pid) },
+        })
+    end
 }
