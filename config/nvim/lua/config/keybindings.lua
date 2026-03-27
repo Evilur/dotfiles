@@ -43,10 +43,17 @@ map('i', '<C-l>', '<Right>', opts)
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
 map('n', '<leader>o', 'o<Esc>k', opts)
 map('n', '<leader>O', 'O<Esc>j', opts)
-map('n', '<leader>g', ':Gitsigns ', opts)
+
+-- Gitsigns
+map('n', '<leader>G', ':Gitsigns ', opts)
+map('n', '[h', ':Gitsigns prev_hunk<CR>')
+map('n', ']h', ':Gitsigns next_hunk<CR>')
 
 -- Nvim Tree
-map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>T', ':NvimTreeToggle<CR>', opts)
+
+-- Telescope
+map('n', '<leader>t', ':Telescope<cr>', opts)
 
 -- Build
 map('n', '<F5>', ':belowright terminal make -f nvim.Makefile run<CR>i', opts)

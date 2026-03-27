@@ -19,7 +19,6 @@ return {
             'lemminx',
             'lua_ls',
             'marksman',
-            'omnisharp-mono',
             'pyright',
             'ts_ls',
             'yamlls',
