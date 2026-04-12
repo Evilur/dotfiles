@@ -2,21 +2,21 @@
 # Applications #
 ################
 
+# Rofi
+alt + a
+	xkb-switch -s us && rofi -m 1 -theme ~/.config/rofi/config.rasi -show drun
+
 # Google Chrome with WireGuard VPN
 alt + b
-	wg-ns $USER google-chrome-stable
+	vpnrun google-chrome-stable
 
 # Discord with WireGuard VPN
 alt + d
-    MESA_LOADER_DRIVER_OVERRIDE=radeon wg-ns $USER discord
+    MESA_LOADER_DRIVER_OVERRIDE=radeon vpnrun discord
 
 # Kitty terminal
 alt + t
 	xkb-switch -s us && kitty
-
-# Rofi
-alt + a
-	xkb-switch -s us && rofi -m 1 -theme ~/.config/rofi/config.rasi -show drun
 
 # Calculator
 alt + c
@@ -24,7 +24,7 @@ alt + c
 
 # Messenger
 alt + e
-    Telegram
+    vpnrun Telegram
 
 # Obsidian
 alt + o
