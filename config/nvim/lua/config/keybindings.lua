@@ -56,9 +56,9 @@ map('n', '<leader>T', ':NvimTreeToggle<CR>', opts)
 map('n', '<leader>t', ':Telescope<cr>', opts)
 
 -- Build
-map('n', '<F5>', ':belowright terminal make -f nvim.Makefile run<CR>i', opts)
+map('n', '<F5>', ':terminal make -f nvim.Makefile run<CR>i', opts)
 map('n', '<F6>', ':terminal make -f nvim.Makefile debug<CR>i', opts)
-map('n', '<F7>', ':belowright terminal make -f nvim.Makefile clean<CR>i', opts)
+map('n', '<F7>', ':terminal make -f nvim.Makefile clean<CR>i', opts)
 
 -- Lsp
 local lsp_buf = vim.lsp.buf
