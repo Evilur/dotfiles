@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+# Sudo commands
+readonly SUDO=doas
+
+# Exec the command
+exec $SUDO ip netns exec vpn $SUDO -u $USER $*

@@ -5,10 +5,10 @@ set -e
 readonly SUDO=doas
 
 # Remove unneccesary dependencies
-paru --sudo $SUDO -cc --noconfirm
+paru -cc --noconfirm
 
 # Full system upgrade
-paru --sudo $SUDO -Syyu --noconfirm
+paru -Syyu --noconfirm
 
 # Backup initramfs
 $SUDO mv -v /boot/initramfs* /tmp
