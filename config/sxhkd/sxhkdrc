@@ -91,19 +91,19 @@ super + d
     show-desktop
 
 # Focus the window
-alt + {h,l}
+alt + {p,n}
 	bspc node --focus {prev,next}.local.window
 
 # Focus the window (direction)
-super + {h,j,k,l}
+alt + {h,j,k,l}
     bspc node --focus {west,south,north,east}.local.window
 
 # Move the window
-alt + shift + {h,l}
+alt + shift + {p,n}
     bspc node --swap {prev,next}.local.window
 
 # Move the window (direction)
-super + shift + {h,j,k,l}
+alt + shift + {h,j,k,l}
     bspc-move-window {-100 0 west, 0 100 south,\
                       0 -100 north, 100 0 east}
 
@@ -113,11 +113,11 @@ alt + ctrl + {h,j,k,l}
                         bottom top 0 -100,right left 100 0}
 
 # Set window status
-super + {n,m,comma,period}
-	bspc node --state {floating,tiled,pseudo_tiled,fullscreen}
+super + {t,shift + t,f,shift + f}
+	bspc node --state {tiled,pseudo_tiled,floating,fullscreen}
 
 # Set window flag (Blink with green if all is OK)
-super + {u,i,o,p}
+super + {m,s,l,p}
 	bspc node --flag {marked,sticky,locked,private} && bspc-blink GREEN
 
 ############
