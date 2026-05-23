@@ -91,21 +91,12 @@ super + d
     show-desktop
 
 # Focus the window
-alt + {p,n}
+alt + {h,l}
 	bspc node --focus {prev,next}.local.window
 
-# Focus the window (direction)
-alt + {h,j,k,l}
-    bspc node --focus {west,south,north,east}.local.window
-
 # Move the window
-alt + shift + {p,n}
+alt + shift + {h,l}
     bspc node --swap {prev,next}.local.window
-
-# Move the window (direction)
-alt + shift + {h,j,k,l}
-    bspc-move-window {-100 0 west, 0 100 south,\
-                      0 -100 north, 100 0 east}
 
 # Resize the window
 alt + ctrl + {h,j,k,l}

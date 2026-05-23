@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Mouse sensensity
-readonly MOUSE_PROP=11
+readonly MOUSE_PROP=9
 xinput set-prop $MOUSE_PROP 'libinput Accel Speed' -0.70
 xinput set-prop $MOUSE_PROP 'libinput Accel Profile Enabled' 0, 1
 
@@ -24,7 +24,6 @@ pkill conky
 pkill picom
 pkill polybar
 pkill polkit-gnome-au
-pkill flameshot
 
 # Autostart
 sxhkd &
@@ -36,7 +35,6 @@ polybar second &
 xrdb -merge ~/.Xresources &
 setxkbmap -layout us,ru -option grp:caps_toggle &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-flameshot &
 xsetroot -cursor_name left_ptr &
 
 # Workspaces
