@@ -1,0 +1,34 @@
+# GRUB boot loader configuration
+
+# Default option
+GRUB_DEFAULT="0"
+
+# Timeout
+GRUB_TIMEOUT="5"
+GRUB_TIMEOUT_STYLE="menu"
+
+# Distributor
+GRUB_DISTRIBUTOR="Arch"
+
+# CMDs
+GRUB_CMDLINE_LINUX="loglevel=4 rootfstype=ext4 ipv6.disable=1"
+
+# Modules
+GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+
+# Resolution
+GRUB_GFXMODE="2560x1440"
+GRUB_GFXPAYLOAD_LINUX="keep"
+
+# Disable recovery
+GRUB_DISABLE_RECOVERY="true"
+
+# Colors
+GRUB_COLOR_NORMAL="light-blue/black"
+GRUB_COLOR_HIGHLIGHT="white/light-blue"
+
+# Set the font
+GRUB_FONT="/boot/grub/fonts/JetBrainsMono.pf2"
+
+# Disable the OS prober
+GRUB_DISABLE_OS_PROBER="true"
