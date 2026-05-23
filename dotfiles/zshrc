@@ -1,0 +1,3 @@
+for zsh_file in ~/.zshrc.d/*; do
+    source $zsh_file
+done
