@@ -1,0 +1,2 @@
+Server = http://mirrors.powernet.com.ru/archlinux/$repo/os/$arch
+Server = http://mirror.truenetwork.ru/archlinux/$repo/os/$arch
