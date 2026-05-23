@@ -1,0 +1,15 @@
+[user]
+    name = Andrew Shershunov
+    email = the.evilur@gmail.com
+    signingkey = 1E5CE87B7D4E3890
+[alias]
+    st = status
+    al = add :/*
+    br = branch
+    cm = commit
+    sw = switch
+    hist = log --pretty=format:\"%C(green)%h %C(blue)%ad %C(reset)| %C(yellow)%s%C(magenta)%d %C(cyan)[%an]%C(reset)\" --graph --date=short
+[init]
+    defaultBranch = master
+[commit]
+    gpgsign = true
