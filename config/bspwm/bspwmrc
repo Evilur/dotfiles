@@ -1,22 +1,7 @@
 #!/usr/bin/env sh
 
-# Mouse sensensity
-readonly MOUSE_PROP=9
-xinput set-prop $MOUSE_PROP 'libinput Accel Speed' -0.70
-xinput set-prop $MOUSE_PROP 'libinput Accel Profile Enabled' 0, 1
-
-# Monitors
-xrandr --output HDMI-A-1 \
-    --mode 1920x1080 \
-    --rate 60.00 \
-    --rotate normal \
-    --pos 0x350
-xrandr --output DisplayPort-0 \
-    --primary \
-    --mode 2560x1440 \
-    --rate 165.00 \
-    --rotate normal \
-    --pos 1920x0
+# Set up the monitors
+autorandr --change --default main
 
 # Kill previous instances
 pkill sxhkd
@@ -26,7 +11,6 @@ pkill polybar
 pkill polkit-gnome-au
 
 # Autostart
-sxhkd &
 feh --bg-fill ~/Images/Wallpapers.jpg &
 picom -b &
 conky &
@@ -35,6 +19,7 @@ xrdb -merge ~/.Xresources &
 setxkbmap -layout us,ru -option grp:caps_toggle &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xsetroot -cursor_name left_ptr &
+sxhkd &
 
 # Workspaces
 bspc monitor -d 1 2 3 4 5
