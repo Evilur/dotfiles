@@ -30,16 +30,14 @@ sxhkd &
 feh --bg-fill ~/Images/Wallpapers.jpg &
 picom -b &
 conky &
-polybar master &
-polybar second &
+polybar main &
 xrdb -merge ~/.Xresources &
 setxkbmap -layout us,ru -option grp:caps_toggle &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xsetroot -cursor_name left_ptr &
 
 # Workspaces
-bspc monitor DisplayPort-0 -d 1 2 3 4 5
-bspc monitor HDMI-A-1      -d 6 7 8 9 0
+bspc monitor -d 1 2 3 4 5
 
 # Settings
 bspc config border_width          5
@@ -54,4 +52,3 @@ bspc config presel_feedback_color $COLOR_RED
 # Window rules (xprop | grep WM_CLASS)
 bspc rule -a kitty locked=on
 bspc rule -a gnome-calculator state=floating sticky=on
-bspc rule -a PacketTracer state=floating
