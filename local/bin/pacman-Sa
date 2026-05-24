@@ -11,7 +11,7 @@ paru -cc --noconfirm
 paru -Syyu --noconfirm
 
 # Backup initramfs
-$SUDO mv -v /boot/initramfs* /tmp
+$SUDO mv -vf /boot/initramfs* /tmp
 
 # Try to regenerate the boot image
 $SUDO dracut --force --regenerate-all --verbose || {
