@@ -8,11 +8,11 @@ alt + a
 
 # Google Chrome with WireGuard VPN
 alt + b
-	vpnrun google-chrome-stable
+	google-chrome-stable
 
 # Discord with WireGuard VPN
 alt + d
-    MESA_LOADER_DRIVER_OVERRIDE=radeon vpnrun discord
+    MESA_LOADER_DRIVER_OVERRIDE=radeon discord
 
 # Kitty terminal
 alt + t
@@ -24,7 +24,7 @@ alt + c
 
 # Messenger
 alt + e
-    vpnrun Telegram
+    Telegram
 
 # Obsidian
 alt + o
@@ -39,20 +39,32 @@ alt + F10
 	flameshot gui
 
 #########
-# Alarm #
+# Audio #
 #########
 
-# Enter the space key (pause the video) and 'alt + tab' (alt + space)
-XF86AudioLowerVolume
-	xdotool key space; bspc desktop -f last.local
-
-# Mute the audio, enter the space (pause the video) and 'alt + tab' (alt + space)
+# Raise the volume
 XF86AudioRaiseVolume
-	xdotool key space; bspc desktop -f last.local
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+# Lower the volume
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
 
 # Mute/unmute the audio
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+##############
+# Brightness #
+##############
+
+# Raise the brightness
+XF86MonBrightnessUp
+	brightnessctl set 5%+
+
+# Lower the brightness
+XF86MonBrightnessDown
+	brightnessctl set 5%-
 
 ########
 # Misc #
