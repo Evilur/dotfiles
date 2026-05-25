@@ -44,15 +44,15 @@ alt + F10
 
 # Raise the volume
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +10%
+	volumectl -d -M 0 up 10
 
 # Lower the volume
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -10%
+	volumectl -d -M 0 down 10
 
 # Mute/unmute the audio
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    volumectl -d -M 0 toggle-mute
 
 ##############
 # Brightness #
@@ -60,11 +60,11 @@ XF86AudioMute
 
 # Raise the brightness
 XF86MonBrightnessUp
-	brightnessctl set 5%+
+	lightctl -d -M 0 up 10
 
 # Lower the brightness
 XF86MonBrightnessDown
-	brightnessctl set 5%-
+	lightctl -d -M 0 down 10
 
 ########
 # Misc #
@@ -75,7 +75,7 @@ alt + x
     pointer-lock
 
 # Quit the BSPWM
-super + KP_Subtract
+super + l
     bspc quit
 
 # Disable picom frame limit

@@ -9,6 +9,7 @@ pkill conky
 pkill picom
 pkill polybar
 pkill polkit-gnome-au
+pkill avizo-service
 
 # Autostart
 feh --bg-fill ~/Images/Wallpapers.jpg &
@@ -19,6 +20,7 @@ xrdb -merge ~/.Xresources &
 setxkbmap -layout us,ru -option grp:caps_toggle &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xsetroot -cursor_name left_ptr &
+avizo-service &
 sxhkd &
 
 # Workspaces
