@@ -11,19 +11,16 @@ paru -cc --noconfirm
 paru -Syyu --noconfirm
 
 # Backup initramfs
-$SUDO mv -vf /boot/initramfs* /tmp
+$SUDO mv -v /boot/initramfs* /tmp 2>/dev/null || true
 
 # Try to regenerate the boot image
-$SUDO dracut --force --regenerate-all --verbose || {
+$SUDO mkinitcpio -g /boot/initramfs-linux.img || {
     # If the regenerating has been canceled, restore the backup
     mv -v /tmp/initramfs* /boot
 
     # Exit with the error code
     exit 1
 }
-
-# If all is OK, set the right name
-$SUDO mv -v /boot/initramfs* /boot/initramfs-linux.img
 
 # Exit with the success code
 exit 0
