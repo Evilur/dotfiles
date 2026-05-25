@@ -1,1 +1,9 @@
+export XDG_CURRENT_DESKTOP=GNOME
+export XDG_SESSION_TYPE=x11
+export GTK_USE_PORTAL=0
+export DISPLAY=:0
+
+dbus-update-activation-environment --systemd \
+  DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+
 exec bspwm
