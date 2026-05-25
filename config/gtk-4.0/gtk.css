@@ -1,0 +1,52 @@
+:root {
+    /* Accent */
+    --accent-color: #0077ff;
+    --accent-bg-color: #0077ff;
+    --accent-fg-color: #f4f2fd;
+
+    /* Window */
+    --window-bg-color: #181926;
+    --window-fg-color: #f4f2fd;
+
+    /* View */
+    --view-bg-color: #1e2030;
+    --view-fg-color: #f4f2fd;
+
+    /* Card */
+    --card-bg-color: #24273a;
+    --card-fg-color: #f4f2fd;
+
+    /* Popover */
+    --popover-bg-color: #24273a;
+    --popover-fg-color: #f4f2fd;
+
+    /* Header Bar */
+    --headerbar-bg-color: #1e2030;
+    --headerbar-fg-color: #f4f2fd;
+
+    /* Side Bar */
+    --sidebar-bg-color: #181926;
+    --sidebar-fg-color: #f4f2fd;
+
+    /* Success */
+    --success-bg-color: #50fa7b;
+    --success-fg-color: #f4f2fd;
+
+    /* Warning */
+    --warning-bg-color: #ff8147;
+    --warning-fg-color: #f4f2fd;
+
+    /* Error */
+    --destructive-bg-color: #ff4064;
+    --destructive-fg-color: #f4f2fd;
+
+    /* Dim Labels */
+    --dim-label-color: #4e557e;
+
+    /* Placeholders */
+    --placeholder-color: #4e557e;
+
+    /* Borders */
+    --borders: #1e2030;
+    --alt-borders: #1e2030;
+}
