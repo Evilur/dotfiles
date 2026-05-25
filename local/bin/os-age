@@ -1,0 +1,41 @@
+#!/usr/bin/sh
+
+# Get the OS age in days
+readonly AGE_SECONDS=$(( $(date +%s) - $(stat -c %W /) ))
+readonly AGE_DAYS=$(( AGE_SECONDS / 24 / 60 / 60 ))
+
+# Check for an empty var
+if [[ -z "$AGE_DAYS" ]]; then
+    echo -n "Can't get the OS age" >&2
+    exit 100
+fi
+
+# If there is one day
+if [[ "$AGE_DAYS" -eq 1 ]]; then
+    echo -n "1 day"
+    exit 0
+fi
+
+# If less than a year
+if [[ "$AGE_DAYS" -le 365 ]]; then
+    echo -n "$AGE_DAYS days"
+    exit 0
+fi
+
+# If more than a year
+readonly YEARS=$(( AGE_DAYS / 365 ))
+readonly DAYS=$(( AGE_DAYS % 365 ))
+
+# Print the result
+if [[ "$YEARS" -eq 1 ]]; then
+    echo -n "1 year "
+else
+    echo -n "$YEARS years "
+fi
+if [[ "$DAYS" -eq 1 ]]; then
+    echo -n "1 day"
+else
+    if [[ "$DAYS" -gt 0 ]]; then
+        echo -n "$DAYS days"
+    fi
+fi
