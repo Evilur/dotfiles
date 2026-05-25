@@ -50,3 +50,8 @@
     --borders: #1e2030;
     --alt-borders: #1e2030;
 }
+
+.history-view, .editor.sourceview.view {
+    background-color: var(--view-bg-color);
+    color: var(--view-fg-color);
+}
