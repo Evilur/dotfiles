@@ -23,8 +23,9 @@ xsetroot -cursor_name left_ptr &
 avizo-service &
 sxhkd &
 
-# Workspaces
-bspc monitor -d 1 2 3 4 5
+# Desktops
+readonly PRIMARY_MONITOR=$(xrandr --query | grep " primary " | cut -d" " -f1)
+bspc monitor "$PRIMARY_MONITOR" -d 1 2 3 4 5
 
 # Settings
 bspc config border_width          5
