@@ -142,6 +142,7 @@ keymap = [
 [spot]
 keymap = [
 	{ on = "<Esc>", run = "close", desc = "Close the spot" },
+	{ on = "<Tab>", run = "close", desc = "Close the spot" },
 
 	{ on = "k", run = "arrow prev", desc = "Previous line" },
 	{ on = "j", run = "arrow next", desc = "Next line" },
@@ -169,6 +170,7 @@ keymap = [
 [input]
 keymap = [
 	{ on = "<Esc>",   run = "escape",         desc = "Back to normal mode, or cancel input" },
+    { on = "<C-c>",   run = "close",          desc = "Close the input" },
 	{ on = "<Enter>", run = "close --submit", desc = "Submit input" },
 
 	# Mode
