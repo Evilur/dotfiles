@@ -1,0 +1,65 @@
+* {
+    font: "JetBrains Mono NL 18";
+
+    background-color: transparent;
+    text-color: #f4f2fd;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+
+window {
+    background-color: #1e2030;
+    location: center;
+    width: 1000px;
+    height: 800px;
+    border: 6px;
+    border-color: #181926;
+    border-radius:  18;
+}
+
+inputbar {
+    padding: 12px;
+    spacing: 12px;
+    children: [ icon-search, entry ];
+}
+
+icon-search {
+    expand: false;
+    filename: "edit-find-symbolic";
+    size: 28px;
+}
+
+icon-search, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: #42486b;
+}
+
+message {
+    padding: 10px 0px 20px 0px;
+    background-color: #181926;
+}
+
+listview {
+    columns: 1;
+}
+
+element {
+    padding: 8px 16px;
+    spacing: 16px;
+    background-color:   transparent;
+}
+
+element selected normal, element selected active {
+    background-color:   #0077ff;
+    text-color:         #f4f2fd;
+}
+
+element-icon {
+    size: 40px;
+}

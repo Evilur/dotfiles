@@ -4,7 +4,7 @@
 
 # Rofi
 alt + a
-	xkb-switch -s us && rofi -m 1 -theme ~/.config/rofi/config.rasi -show drun
+	xkb-switch -s us && rofi -theme ~/.config/rofi/drun.rasi -show drun
 
 # Google Chrome with WireGuard VPN
 alt + b
