@@ -12,7 +12,7 @@ pkill polkit-gnome-au
 pkill avizo-service
 
 # Autostart
-feh --bg-fill ~/Images/Wallpapers.jpg &
+feh --bg-fill ~/.config/bspwm/Wallpapers.jpg &
 picom -b &
 conky &
 polybar main &
