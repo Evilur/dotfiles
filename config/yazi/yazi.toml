@@ -1,13 +1,8 @@
-# A TOML linter such as https://github.com/tombi-toml/tombi can use this schema to validate your config.
-# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-
-#:schema https://yazi-rs.github.io/schemas/yazi.json
-
 [mgr]
-ratio          = [ 1, 4, 3 ]
+ratio          = [ 2, 5, 4 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse   = false
 sort_dir_first = true
 sort_translit  = false
 sort_fallback  = "alphabetical"
@@ -15,17 +10,17 @@ linemode       = "none"
 show_hidden    = false
 show_symlink   = true
 scrolloff      = 5
-mouse_events   = [ "click", "scroll", "drag" ]
+mouse_events   = []
 
 [preview]
 wrap            = "no"
 tab_size        = 2
-max_width       = 600
-max_height      = 900
+max_width       = 2048
+max_height      = 2048
 cache_dir       = ""
-image_delay     = 30
-image_filter    = "triangle"
-image_quality   = 75
+image_delay     = 0
+image_filter    = "lanczos3"
+image_quality   = 90
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
@@ -87,15 +82,15 @@ rules = [
 ]
 
 [tasks]
-file_workers     = 3
-plugin_workers   = 5
-fetch_workers    = 5
-preload_workers  = 2
-process_workers  = 5
-bizarre_retry    = 3
-image_alloc      = 536870912  # 512MB
-image_bound      = [ 10000, 10000 ]
-suppress_preload = false
+file_workers     = 16
+plugin_workers   = 16
+fetch_workers    = 16
+preload_workers  = 16
+process_workers  = 16
+bizarre_retry    = 16
+image_alloc      = 0
+image_bound      = [ 0, 0 ]
+suppress_preload = true
 
 [plugin]
 fetchers = [
