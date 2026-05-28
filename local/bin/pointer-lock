@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
-# File to monitor the pointer state
-LOCK_FILE=/tmp/$USER.pointer.lock
+# File to save the pointer state
+readonly LOCK_FILE=/tmp/$USER.pointer.lock
 
 # If cursor is NOT locked
 if ! [[ -f $LOCK_FILE ]]; then
     # Move the cursor to the screen corner
-    xdotool mousemove 0 1429
+    xdotool mousemove 0 9999
 
     # Disable xinput device
     for id in $(xinput |\
@@ -21,8 +21,16 @@ if ! [[ -f $LOCK_FILE ]]; then
     touch $LOCK_FILE
 # If cursor is already locked
 else
+    # Get the primary monitor resolution and position
+    readonly PRIMARY_DATA=$(
+        xrandr --query |
+            grep primary |
+            grep -oE '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+'
+        )
+    IFS='x+' read -r width height x y <<< "$PRIMARY_DATA"
+
     # Move the cursor to the center of the screen
-    xdotool mousemove 3200 720
+    xdotool mousemove $(( x + width / 2 )) $(( y + height / 2 ))
 
         # Disable xinput device
         for id in $(xinput |\
