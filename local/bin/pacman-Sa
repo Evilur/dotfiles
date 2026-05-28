@@ -10,6 +10,10 @@ paru -cc --noconfirm
 # Full system upgrade
 paru -Syyu --noconfirm
 
+# Remove pacman and paru cache
+rm -rfv ~/.cache/paru/clone
+$SUDO rm -rfv /var/cache/pacman/pkg
+
 # Backup initramfs
 $SUDO mv -v /boot/initramfs* /tmp 2>/dev/null || true
 
