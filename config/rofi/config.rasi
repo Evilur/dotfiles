@@ -23,10 +23,10 @@ configuration {
   	kb-remove-word-back: "";
   	kb-remove-word-forward: "";
   	kb-remove-char-forward: "";
-  	kb-remove-char-back: "";
+  	kb-remove-char-back: "BackSpace";
     kb-remove-to-eol: "";
   	kb-remove-to-sol: "";
-	kb-accept-entry: "Ctrl+m,Return,KP_Enter";
+	kb-accept-entry: "Ctrl+m,Return";
   	kb-accept-custom: "";
   	kb-accept-custom-alt: "";
   	kb-accept-alt: "";
