@@ -11,27 +11,27 @@ local c = {
 return {
     normal = {
         a = { bg = c.blue, fg = c.white, gui = 'bold' },
-        b = { bg = c.base, fg = c.white },
+        b = { bg = c.white, fg = c.base },
         c = { bg = c.grey_10, fg = c.white }
     },
     insert = {
         a = { bg = c.blue, fg = c.white, gui = 'bold' },
-        b = { bg = c.base, fg = c.white },
+        b = { bg = c.white, fg = c.base },
         c = { bg = c.grey_10, fg = c.white }
     },
     replace = {
         a = { bg = c.green, fg = c.base, gui = 'bold' },
-        b = { bg = c.base, fg = c.white },
+        b = { bg = c.white, fg = c.base },
         c = { bg = c.grey_10, fg = c.white }
     },
     visual = {
         a = { bg = c.purple, fg = c.white, gui = 'bold' },
-        b = { bg = c.base, fg = c.white },
+        b = { bg = c.white, fg = c.base },
         c = { bg = c.grey_10, fg = c.white }
     },
     command = {
         a = { bg = c.red, fg = c.white, gui = 'bold' },
-        b = { bg = c.base, fg = c.white },
+        b = { bg = c.white, fg = c.base },
         c = { bg = c.grey_10, fg = c.white }
     }
 }
