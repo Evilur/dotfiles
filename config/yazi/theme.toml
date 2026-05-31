@@ -6,7 +6,7 @@ light = ""
 overall = { bg = "#24273a" }
 
 [mgr]
-cwd = { fg = "#50fa7b" }
+cwd = { fg = "#0077ff" }
 
 # Find
 find_keyword  = { bg = "#ff4064", fg = "#f4f2fd", bold = true, underline = true }
