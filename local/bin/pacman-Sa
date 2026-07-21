@@ -18,7 +18,7 @@ $SUDO rm -rfv /var/cache/pacman/pkg
 $SUDO mv -v /boot/initramfs* /tmp 2>/dev/null || true
 
 # Try to regenerate the boot image
-$SUDO mkinitcpio -g /boot/initramfs-linux.img || {
+$SUDO mkinitcpio -P || {
     # If the regenerating has been canceled, restore the backup
     mv -v /tmp/initramfs* /boot
 
