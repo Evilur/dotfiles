@@ -4,7 +4,7 @@
 
 # Rofi
 alt + a
-	xkb-switch -s us && rofi -show drun
+	rofi -show drun
 
 # Google Chrome with WireGuard VPN
 alt + b
@@ -16,7 +16,7 @@ alt + d
 
 # Kitty terminal
 alt + t
-	xkb-switch -s us && kitty
+	kitty
 
 # Calculator
 alt + c
@@ -87,7 +87,7 @@ super + KP_Add
 	pkill -USR1 -x sxhkd; bspc wm -r
 
 # Turn off monitors
-super + KP_Enter
+super + Return
 	sleep 1; xset dpms force off
 
 ###########
