@@ -39,4 +39,5 @@ bspc config presel_feedback_color $COLOR_RED
 
 # Window rules (xprop | grep WM_CLASS)
 bspc rule -a kitty locked=on
+bspc rule -a flameshot state=floating border=off
 bspc rule -a gnome-calculator state=floating sticky=on
