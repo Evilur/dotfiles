@@ -4,12 +4,13 @@
 autorandr --change --default main
 
 # Kill previous instances
-pkill sxhkd
-pkill conky
-pkill picom
-pkill polybar
-pkill polkit-gnome-au
 pkill avizo-service
+pkill conky
+pkill flameshot
+pkill picom
+pkill polkit-gnome-au
+pkill polybar
+pkill sxhkd
 
 # Autostart
 feh --bg-fill ~/.config/bspwm/Wallpapers.jpg &
@@ -22,6 +23,7 @@ setxkbmap -layout us,ru -option grp:caps_toggle &
 xsetroot -cursor_name left_ptr &
 avizo-service &
 sxhkd &
+flameshot &
 
 # Desktops
 readonly PRIMARY_MONITOR=$(xrandr --query | grep " primary " | cut -d" " -f1)
@@ -40,4 +42,5 @@ bspc config presel_feedback_color $COLOR_RED
 # Window rules (xprop | grep WM_CLASS)
 bspc rule -a kitty locked=on
 bspc rule -a flameshot state=floating border=off
+bspc rule -a resolve state=floating border=off
 bspc rule -a gnome-calculator state=floating sticky=on
