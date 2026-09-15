@@ -9,7 +9,10 @@ return {
                 signcolumn = 'no'
             },
             filters = {
-                custom = { '^\\.git$' }
+                custom = {
+                    '^\\.git$',
+                    '^\\.github$',
+                }
             }
         })
     end
