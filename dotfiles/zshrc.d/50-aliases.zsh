@@ -1,3 +1,6 @@
+alias la='ls -a'
+alias ll='ls -lh'
+alias lla='ls -lha'
 alias diff='diff --color=always'
 alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
