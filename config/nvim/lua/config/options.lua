@@ -12,6 +12,7 @@ opt.foldmethod      = 'expr'
 opt.hlsearch        = true
 opt.ignorecase      = true
 opt.incsearch       = true
+opt.iskeyword       = '@,48-57'
 opt.linebreak       = true
 opt.mouse           = nil
 opt.number          = true
