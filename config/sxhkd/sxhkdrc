@@ -132,7 +132,7 @@ alt + m
 	bspc desktop -l next
 
 # Focus to the last desktop
-alt + space
+alt + {space,Return}
 	bspc desktop --focus last.local
 
 # Focus to the prev/next desktop
@@ -144,7 +144,7 @@ alt + {0-9}
     bspc desktop --focus {0-9}
 
 # Move the focused window to the last desktop
-alt + shift + space
+alt + shift + {space,Return}
     bspc node --to-desktop last.local --follow
 
 # Move the focused window to the prev/next desktop
